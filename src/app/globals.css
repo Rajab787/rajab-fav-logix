@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+:root {
+  --background: #EFF0EB;
+  --foreground: #000000;
+
+  --card-bg: #FAFAF8;
+  --border-color: #E5E7EB;
+
+  --font-sf-compact: -apple-system, BlinkMacSystemFont, "SF Compact",
+    "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ================= DARK THEME ================= */
+[data-theme="dark"] {
+  --background: #05070C;
+  --foreground: #ffffff;
+
+  --card-bg: #0F1117;
+  --border-color: #1F2937;
+}
+
+/* ================= TAILWIND THEME BINDING ================= */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card-bg);
+  --color-border: var(--border-color);
+
+  --font-sans: var(--font-sf-compact);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --font-sans: var(--font-geist-sans);
+    --animate-spotlight: spotlight 2s ease 0.75s 1 forwards;
+
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: #000 !important;
+  font-family: var(--font-sf-compact);
+  /* overflow-y: hidden; */
+}
+
+
+@layer components {
+  h1 {
+    @apply font-bold leading-[120%] text-[1.5rem]  lg:text-[1.98vw] 2xl:text-[2.375rem];
+  }
+  h2 {
+    @apply font-bold leading-[110%]  text-[2rem] lg:text-[1vw] 2xl:text-[1.5rem];
+  }
+  h3 {
+    @apply font-bold leading-[100%] text-[1.5rem] lg:text-[1.1vw] 2xl:text-[1.3rem];
+  }
+  h4 {
+    @apply font-[457] leading-[100%] text-[#222222] text-[1rem] lg:text-[0.9vw] 2xl:text-[1rem]
+  }
+  h5 {
+    @apply  font-medium text-[1rem] lg:text-[0.75vw] 2xl:text-[0.85rem];
+  }
+  h6 {
+    @apply  font-medium text-[0.9rem] lg:text-[0.6vw] 2xl:text-[0.7rem];
+  }
+  p,
+  li {
+    @apply font-medium leading-[150%] text-[0.8rem]  lg:text-[0.62vw] 2xl:text-[0.7rem];
+  }
+  .body1 {
+    @apply font-medium leading-[150%] text-[0.66rem] text-[#3F3C39] lg:text-[0.66vw] 2xl:text-[0.66rem];
+  }
+  .smallText {
+    @apply font-medium font-medium text-[0.85rem] lg:text-[0.85vw] 2xl:text-[0.85rem];
+  }
+}
+
+.roz-text {
+  font-family: "Rozinzo", sans-serif;
+  font-weight: 300;
+}@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(15px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.02) translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-fadeUp {
+  animation: fadeInUp 0.7s ease-in-out forwards;
+}
+
+
+/* Hide scrollbar for Chrome, Safari and Edge */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+button{
+  cursor: pointer;
+}
+/* Hide scrollbar for Firefox */
+.scrollbar-hide {
+  scrollbar-width: none;
+}
+.slow-spin {
+  animation: slowRotate 2s linear infinite;
+}
+
+@keyframes slowRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes spinGlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spotlight {
+  0% {
+    opacity: 0;
+    transform: translate(-72%, -62%) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -40%) scale(1);
+  }
+}
